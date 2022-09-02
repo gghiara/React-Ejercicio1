@@ -1,0 +1,182 @@
+* {
+  list-style: none; /* SACO EL FORMATO DE TODAS LAS LISTAS */
+  margin: 1px; /* DISTANCIA ENTRE UN OBJETO Y OTRO */
+  box-sizing: border-box;
+}
+
+header {
+  background-color: antiquewhite;
+}
+
+body {
+  background-color: white;
+}
+
+h1 {
+  text-align: center; /* TODOS LOS TITULOS CENTRADOS */
+  transition: all 0.5s ease;
+  padding: 25px;
+  margin: 10px;
+}
+
+h1:hover {
+  text-align: center; /* TODOS LOS TITULOS CENTRADOS */
+  transform: rotate(360deg);
+}
+
+h2 {
+  text-align: center; /* TODOS LOS SUBTITULOS CENTRADOS */
+  animation: animacion1 5s infinite alternate; /* UTILIZAMOS LA ANIMACION CREADA, SE ACTIVA AUTOMATICAMENTE, NO NECESITA CARACTERISTICA HOVER */
+  /* INFINITE - NO FINALIZA - ALTERNATE - VARIA PARA DONDE */
+  padding: 25px;
+  margin: 10px;
+}
+
+p {
+  font-size: 25px; /* TAMAÑO DE TEXTO DE TODOS LOS PARRAFOS */
+  padding: 5px;
+}
+
+img {
+  width: 50%;
+}
+
+.imagen-inicio {
+  display: block;
+  margin: 0px auto;
+  width: 250px;
+}
+
+.imagen-cac {
+  width: 100px;
+}
+
+.imagen-dami {
+  width: 500px;
+  border-radius: 50px;
+}
+
+.link-dami {
+  border-radius: 5px; /* BORDE DE LOS LINKS DE BARRA DE NAVEGACION */
+  background-color: green;
+  transition: font-size 0.6s; /* LO QUE TARDA EN HACER LA TRANSICION DE TAMAÑO */ /* CON "ALL" LO HACE SOBRE TODOS LOS EFECTOS */
+  padding: 10px;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbar .navbar_logo {
+  border-radius: 5px; /* BORDE DE LA IMAGEN DE BARRA DE NAVEGACION */
+  width: 50%; /* OCUPA EL 50% DE SU ELEMENTO PADRE */
+  display: inline-block; /* COLOCA LAS OPCIONES EN LINEA RESPETANDO MARGENES Y PADDING */ /* SE COLOCA PARA QUE ACTUE CON SUS ELEMENTOS HERMANOS */
+}
+
+/* VERSION ESCRITORIO */
+.navbar {
+  display: flex; /* LOS HIJOS DE NAVBAR SE COMPORTAN COMO ELEMENTOS FLEXIBLES */ /* SE PUEDE MOVER EN UN EJE A LA VEZ */
+  flex-direction: row; /* ACOMODA LOS ELEMENTOS EN UNA COLUMNA */
+  justify-content: space-around; /* CENTRA LOS ELEMENTOS */
+  align-items: center; /* CENTRA EL CONTENIDO */
+  /* flex-wrap: wrap; /* CUANDO NO ENTRAN EN PANTALLA, ACOMODA LOS ELEMENTOS */ /* SE QUITO CUANDO SE GENERO EL MEDIA */
+}
+
+.navbar .navbar_logo {
+  max-width: 50%; /* LA IMAGEN DEL LOGO VA A PODER CRECER HASTA 500PX */ /* TENER EN CUENTA EL WIDTH DE SU ELEMENTO PADRE */
+  min-width: 10%; /* LA IMAGEN DEL LOGO VA A PODER DISMINUIR HASTA 200PX */ /* TENER EN CUENTA EL WIDTH DE SU ELEMENTO PADRE */
+}
+
+.navbar .navbar_menu {
+  display: flex;
+  gap: 20px; /* SEPARACION (ESPACIO MUERTO) ENTRE UN ELEMENTO Y OTRO */
+  text-align: center;
+}
+
+.navbar .navbar_menu .navbar_menu_item a {
+  border-radius: 5px; /* BORDE DE LOS LINKS DE BARRA DE NAVEGACION */
+  background-color: green;
+  transition: font-size 0.6s; /* LO QUE TARDA EN HACER LA TRANSICION DE TAMAÑO */ /* CON "ALL" LO HACE SOBRE TODOS LOS EFECTOS */
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar .navbar_menu .navbar_menu_item:hover a {
+  /* HOVER: LO QUE HACE CUANDO SE PASA POR ENCIMA */ /* HOVER EN TACTIL NO FUNCIONA */
+  background-color: aqua;
+  display: block; /* PONE EN LINEA LAS DEMAS OPCIONES */
+}
+
+#menu li > a:hover {
+  /* HOVER: LO QUE HACE CUANDO SE PASA POR ENCIMA DE LOS SUBLINKS*/  
+  background-color: blueviolet;
+  color: wheat;
+}
+
+#menu > li > ul { /* OCULTA LOS ELEMENTOS */
+  display: none;
+}
+
+#menu > li:hover > ul { /* DESPLIEGA AL PASAR POR ARRIBA */
+  display: block;
+}
+
+/* TARJETAS */
+
+.contenedor {
+  max-width: 1080px;
+  margin: 0 auto; /* PARA QUE ESTEN EN EL MEDIO */
+}
+
+.tarjetas {
+  display: flex; /* UNA JUNTO A LA OTRA */
+  gap: 5px;
+}
+
+.tarjetas-par {
+  font-size: 2em;
+}
+
+.tarjetas-tarjeta {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+@keyframes animacion1 {
+  /* SE CREA UNA ANIMACION */
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(2.5);
+    opacity: 1;
+  }
+}
+
+/* RESPONSIVE - HACER QUE LA WEB SE VEA BIEN EN CUALQUIER TAMAÑO */
+/* MOBILE FIRST - PENSAR LA WEB EN FORMATO MOVIL */
+/* RESPONSIVE WEB DESIGN - PENSAR LA WEB EN FORMATO ESCRITORIO */
+
+/* VERSION TABLET */
+@media (min-width: 468px) and (max-width: 768px) {
+  /* LE INDICO CON QUE CONDICION DEBE HACER EL CAMBIO */
+  .navbar {
+    flex-direction: row; /* ACOMODA LOS ELEMENTOS EN UNA COLUMNA */
+  }
+}
+
+/* VERSION TELEFONO */
+@media (max-width: 468px) {
+  /* LE INDICO CON QUE CONDICION DEBE HACER EL CAMBIO */
+  .navbar .navbar_menu {
+    flex-direction: column;
+    align-items: center;
+  }
+}
