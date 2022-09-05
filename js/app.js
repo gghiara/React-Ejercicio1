@@ -15,6 +15,18 @@ console.log(myH3);
 
 myH3.innerText = "Estoy modificando el texto dentro del H3"
 
+const myButtonStr = "<button> Boton </button> </ br>"
+
+myH3.innerHTML = myButtonStr;
+
+// While, do...while... for
+
+const cant_elements = parseInt(prompt("Ingrese la cantidad de elementos"));
+
+for ( let index = 0; index < cant_elements; index++) {
+    myH3.innerHTML = myH3.innerHTML + myButtonStr;
+}
+
 // const myObj = {
 //     "atributo" : "valor"
 // }
